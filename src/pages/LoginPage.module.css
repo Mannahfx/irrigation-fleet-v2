@@ -1,0 +1,442 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #f0f5f0 0%, #dceadc 50%, #c8dcc8 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+/* Animated background orbs */
+.orb1, .orb2, .orb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.orb1 {
+  width: 400px;
+  height: 400px;
+  background: #16a34a;
+  top: -100px;
+  right: -100px;
+  animation: float1 12s ease-in-out infinite;
+}
+
+.orb2 {
+  width: 300px;
+  height: 300px;
+  background: #2e8b57;
+  bottom: -80px;
+  left: -80px;
+  animation: float2 15s ease-in-out infinite;
+}
+
+.orb3 {
+  width: 200px;
+  height: 200px;
+  background: #4ade80;
+  top: 50%;
+  left: 50%;
+  animation: float3 10s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, 40px) scale(1.1); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -30px) scale(1.15); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-30%, -60%) scale(0.9); }
+}
+
+/* Glassmorphism card */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(26, 107, 60, 0.15);
+  border-radius: 20px;
+  padding: 40px 32px 32px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(26, 107, 60, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  animation: cardIn 0.5s ease-out;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Brand area */
+.brandArea {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(26, 107, 60, 0.2);
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brandName {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 20px;
+  color: #1a6b3c;
+  letter-spacing: 1px;
+}
+
+.brandSub {
+  font-family: var(--font);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* Title & subtitle */
+.title {
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+/* Alerts */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  animation: alertIn 0.3s ease;
+}
+
+@keyframes alertIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.alertError {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #dc2626;
+}
+
+.alertSuccess {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #16a34a;
+}
+
+.alertIcon {
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+.input {
+  font-family: var(--font);
+  font-size: 14px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input::placeholder {
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+.input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-glow);
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordInput {
+  width: 100%;
+  padding-right: 40px; /* Make room for the toggle button */
+}
+
+.visibilityToggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+  opacity: 0.7;
+}
+
+.visibilityToggle:hover {
+  opacity: 1;
+}
+
+/* Admin-specific input highlight */
+.inputAdmin {
+  border-color: rgba(26, 107, 60, 0.4);
+  background: rgba(26, 107, 60, 0.04);
+}
+
+.inputAdmin:focus {
+  border-color: #1a6b3c;
+  box-shadow: 0 0 0 3px rgba(26, 107, 60, 0.15);
+}
+
+.fieldHint {
+  font-family: var(--font);
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.7;
+  padding-left: 2px;
+}
+
+/* ─── Account Type Toggle ─── */
+.typeToggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.typeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 8px;
+  background: #ffffff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.typeBtn:hover {
+  border-color: rgba(26, 107, 60, 0.3);
+  color: var(--text);
+}
+
+.typeBtnActive {
+  border-color: var(--green);
+  background: rgba(26, 107, 60, 0.06);
+  color: var(--green);
+  box-shadow: 0 0 0 1px rgba(26, 107, 60, 0.15), inset 0 1px 0 rgba(26, 107, 60, 0.06);
+}
+
+.typeBtnActiveAdmin {
+  border-color: #145530;
+  background: rgba(20, 85, 48, 0.06);
+  color: #145530;
+  box-shadow: 0 0 0 1px rgba(20, 85, 48, 0.15), inset 0 1px 0 rgba(20, 85, 48, 0.06);
+}
+
+.typeIcon {
+  font-size: 16px;
+}
+
+/* Submit button */
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 13px;
+  background: linear-gradient(135deg, #1a6b3c, #2e8b57);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.submitBtnAdmin {
+  background: linear-gradient(135deg, #145530, #1a6b3c);
+}
+
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btnSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Links */
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  color: var(--green);
+  font-family: var(--font);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 0;
+  transition: color 0.2s;
+}
+
+.linkBtn:hover {
+  color: #2e8b57;
+  text-decoration: underline;
+}
+
+.linkDot {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 32px;
+  font-family: var(--font);
+  font-size: 12px;
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .card {
+    padding: 32px 20px 24px;
+    border-radius: 16px;
+  }
+
+  .logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .brandName {
+    font-size: 16px;
+  }
+
+  .typeBtn {
+    font-size: 12px;
+    padding: 10px 6px;
+    gap: 5px;
+  }
+}

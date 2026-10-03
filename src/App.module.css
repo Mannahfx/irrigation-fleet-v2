@@ -1,0 +1,206 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+/* ───── Header ───── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #1a6b3c;
+  border-bottom: 1px solid #145530;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoLink {
+  text-decoration: none;
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brandName {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.brandSub {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+}
+
+/* Header right area */
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.adminLink {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.adminLink:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navLink {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* User area */
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.userAvatarAdmin {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.userRole {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.userRoleAdmin {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+/* Logout */
+.logoutBtn {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.logoutBtn:hover {
+  color: #fff;
+  background: rgba(239, 68, 68, 0.3);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* ───── Footer ───── */
+.footer {
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  opacity: 0.6;
+  background: var(--surface);
+}
+
+/* ───── Responsive ───── */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+  }
+
+  .userInfo {
+    display: none;
+  }
+
+  .adminLink, .navLink {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandName {
+    font-size: 14px;
+  }
+
+  .brandSub {
+    display: none;
+  }
+}
